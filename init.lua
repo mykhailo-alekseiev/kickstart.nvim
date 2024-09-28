@@ -237,6 +237,39 @@ require('lazy').setup({
     end,
   }, -- Detect tabstop and shiftwidth automatically
   {
+    'kdheepak/lazygit.nvim',
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+    },
+  },
+  { 'echasnovski/mini.nvim', version = '*' },
+  {
+    'smjonas/inc-rename.nvim',
+    config = function()
+      require('inc_rename').setup()
+    end,
+  },
+  {
+    'goolord/alpha-nvim',
+    dependencies = { 'echasnovski/mini.icons' },
+    config = function()
+      require('alpha').setup(require('alpha.themes.startify').config)
+    end,
+  },
+  {
     'windwp/nvim-ts-autotag',
     opts = {
       -- Defaults
